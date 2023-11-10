@@ -1,13 +1,19 @@
 import requests
 
-if __name__ == 'main':
-    url = 'https://www.colegiomeze.com/'
-    response = requests.get(url)
+url = "https://colegiomeze.com/"
+response = requests.get(url)
+    
+if response.status_code == 200:
 
-    if response.status_code == 200:
-        content = response.content
-        file = open('meze.html', 'wb')
-        file.write(content)
-        file.close()
+
+    content = response.content
+
+    file = open("colegiomeze.html", "wb")
+
+    file.write(content)
+
+    file.close()
+else:
+    print(response.status_code)
 
 #Nota este codigo solo se puede ejecutar en Mac
